@@ -5,6 +5,29 @@
     padding: 20px 20px 20px 40px;
 }
 
+.page-header .header {
+    display: flex;
+}
+
+.page-header .header .auth {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.page-header .header .auth .top-menu {
+    margin: 0 15px 5px 0;
+}
+
+.page-header .header .auth .line {
+    padding: 0 5px;
+}
+
+.page-header .header .auth .logout {
+    color: #ffffff;
+}
+
 .page-header h1,
 .page-header h1 a,
 .page-header h1 a:visited,
@@ -38,9 +61,7 @@ h4 {
 .top-menu:hover,
 .top-menu:visited {
     color: #ffffff;
-    float: right;
     font-size: 26pt;
-    margin-right: 20px;
 }
 
 .post {
