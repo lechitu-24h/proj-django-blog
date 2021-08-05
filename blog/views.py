@@ -80,3 +80,12 @@ def post_edit(request, pk):
         return render(request, 'blog/post_edit.html', {'form': form})
     else:
         return redirect('login')
+
+
+def post_delete(request, pk):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=pk)
+        post.delete()
+        return redirect('post_list')
+    else:
+        return redirect('login')

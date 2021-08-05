@@ -21,7 +21,6 @@
             <div class="container">
                 <div class="header">
                     <h1><a href="/">Django Girls Blog</a></h1>
-                    {% if user.is_authenticated %}
                     <div class="auth">
                         <a href="{% url 'post_new' %}" class="top-menu">
                             {% include './icons/file-earmark-plus.svg' %}
@@ -30,7 +29,6 @@
                         <div class="line">/</div>
                         <a href="{% url 'logout' %}" class="logout"> logout </a>
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </header>
