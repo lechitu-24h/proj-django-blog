@@ -1,26 +1,36 @@
 {% extends 'blog/base.html' %} {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <div class="form-search">
-        <div class="search-with">
-            <label for="searchWith">Search with:</label>
-            <select id="searchWith" name="searchWith">
-                {% for s in search %} 
-                <option value="{{s.value}}"{% if s.value == searchWith %} selected{% endif %}>{{s.title}}</option>
-                {% endfor %}
-            </select>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-search">
+            <div class="filter">
+                <select id="category" name="category">
+                    <option value="all">All categories</option>
+                    {% for category in categories %} 
+                    <option value="{{category.id}}" {% if category.id == categoryId %} selected {% endif %}>{{category.text}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="search-group">
+                <div class="search-with">
+                    <label for="searchWith">Search with:</label>
+                    <select id="searchWith" name="searchWith">
+                        {% for s in search %} 
+                        <option value="{{s.value}}" {% if s.value == searchWith %} selected {% endif %}>{{s.title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-search">
+                    <input
+                        type="text"
+                        placeholder="post search..."
+                        name="searchText"
+                        value="{{searchText}}"
+                    />
+                    <button type="submit">Search</button>
+                </div>
+            </div>
         </div>
-        <div class="input-search">
-            <input
-                type="text"
-                placeholder="post search..."
-                name="searchText"
-                value="{{searchText}}"
-            />
-            <button type="submit">Search</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% for post in posts %}
 <article class="post">
     <div class="post-header">

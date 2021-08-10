@@ -9,4 +9,6 @@ urlpatterns = [
     path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
+
+    path('category/new/', views.category_new, name='category_new'),
 ]
